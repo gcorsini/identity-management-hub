@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+  div.container
+    div.section-content
+      form(action='', method='POST')
+        input(type="hidden", name="credential")
+        div.form-textarea
+          textarea.form-control#diddoc(name="diddoc", rows="10", placeholder="Full DID document")
+        div.form-btn.text-center
+          button.btn.btn-block.btn-secondary.btn-red#loginBtn(type='submit', name='submit') Login
+

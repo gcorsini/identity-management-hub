@@ -1,0 +1,44 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+  div.container
+    div.section-content
+      if typeof(msg) !== 'undefined'
+        div.container.text-center#alert
+          span= msg
+      h3 Issue a new VC
+        form(action='', method='POST')
+          div.row
+            div.col.form-input
+              input.form-control#did(type="text", name="did", placeholder="DID")
+          div.row
+            div.col.form-input
+              input.form-control#firstname(type="text", name="first_name", placeholder="First Name")
+            div.col.form-input
+              input.form-control#familyname(type="text", name="family_name", placeholder="Family Name")
+          div.row
+            div.col
+              label(for=birthday) Birthday:
+            div.col.form-input
+              input.form-control#birthday(type="date", name="birthday", placeholder="Birthday")
+          div.row
+            div.form-input
+              input.form-control#issuer_did(type="hidden", name="issuer_did", value=issuerDID)
+            div.col.form-btn.text-center
+              button.btn.btn-block.btn-secondary.btn-red#loginBtn(type='submit', name='submit') Create Verifiable Credential
+
+    div.section-content
+      h3 List of issued VC
+      
+      each vc in vcs
+        div.row
+          div.col-md-6= vc.id
+          div.col-md-3= vc.issuanceDate
+          div.col-md-3
+            form(action='/issuer/'+vc.id, method='POST')
+              button.btn.btn-block.btn-secondary.btn-red#deleteBtn(type='submit', name='submit') REMOVE
+

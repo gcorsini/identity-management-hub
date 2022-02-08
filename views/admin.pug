@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+  div.container
+    div.section-content
+      if typeof(errorIssuerAdd) !== 'undefined'
+        div.container.text-center#alert
+          span= errorIssuerAdd    
+      h3 Create a new issuer and add it to the whitelist
+        form(action='', method='POST')
+          div.form-btn.text-center
+            button.btn.btn-block.btn-secondary.btn-red#loginBtn(type='submit', name='submit') Create and add it
+
+    div.section-content
+      h3 Remove an issuer
+        form(action='/admin/delete', method='POST')
+          div.form-input
+            input.form-control#did(type="text", name="did", placeholder="DID")
+          div.form-btn.text-center
+            button.btn.btn-block.btn-secondary.btn-red#loginBtn(type='submit', name='submit') Remove it
+
+    div.section-content
+      if typeof(errorIssuerList) !== 'undefined'
+        div.container.text-center#alert
+          span= errorIssuerList
+      h3 Whitelist of issuers
+      each did in dids
+        p= did

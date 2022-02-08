@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+  div.container
+    div.section-content
+      p Here are your verified credential claims: 
+
+      h3 Given Name
+      h4= vcContent.givenName
+
+      h3 Family Name
+      h4= vcContent.familyName
+
+      h3 Birthday
+      h4= vcContent.birthDate
+
+      h3 Vaccination
+      h4= vcContent.name
+
+      h3 Valid from
+      h4= vcContent.validFrom

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+  div.container
+    div.section-content
+      p This is the generated VC. If it matches your expectations, you can send it to the MATTR wallet with the public DID:
+      p #{targetDid}.
+
+      h5.display-3.mb-4 Verifiable Credential:
+      br
+      pre
+         code.
+            #{cred}
+
+      form(action='/issuer/send/'+targetDid, method='POST')
+         input(type="hidden", name="credential", value=oriCred)
+         button.btn.btn-block.btn-secondary.btn-red#sendBtn(type='submit', name='submit') Send to #{targetDid}

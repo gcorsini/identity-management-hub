@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+    p #{title} to the Identity Management Hub. 
+    br
+    br
+    h3 What do you want to do?
+
+  div.container
+    div.section-content
+      div.title-wrap
+      div.row.text-center
+        div.col-md-4.col-sm-6
+          a(href='login/user')
+            i.fas.fa-users.fa-7x
+            h5.mb-4 login as a user
+        div.col-md-4.col-sm-6
+          a(href='login/issuer')
+            i.fas.fa-university.fa-7x
+            h5.mb-4 login as an issuer 
+        div.col-md-4.col-sm-6
+          a(href='admin')
+            i.fas.fa-tools.fa-7x
+            h5.mb-4 administer the issuers
+

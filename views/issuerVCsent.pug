@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+  div.container
+    div.section-content
+      p The VC has been sent. Please tell the holder to check their phone and follow the next steps defined in the message of their MATTR wallet.
+      p Redirecting shortly to the issuers site to manage VC.
+
+  script.
+    setTimeout(function () { window.location = "/issuer"; }, 3000)
+

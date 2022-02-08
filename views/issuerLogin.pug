@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  div.container.text-center
+    h2.display-2.mb-4= title
+
+  div.container
+    div.section-content
+      if typeof(msg) !== 'undefined'
+        div.container.text-center#alert
+          span= msg
+      form(action='', method='POST')
+        div.form-textarea
+          textarea.form-control#diddoc(name="diddoc", rows="10", placeholder="DID document")
+        div.form-btn.text-center
+          button.btn.btn-block.btn-secondary.btn-red#loginBtn(type='submit', name='submit') Login
+
